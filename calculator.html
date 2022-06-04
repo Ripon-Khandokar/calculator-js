@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate here your any problem</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height:100vh;
+    }
+    .calculator-body{
+        width: 250px;
+        height: 400px;
+        background: rgb(133, 133, 133);
+        border-radius: 3px;
+    }
+    .calculator-display{
+        width:95%;
+        margin: 20px auto;
+        border-radius: 5px;
+        height:70px;
+        font-size: 25px;
+        text-align: right;
+        font-weight: 600;
+        background: gainsboro;
+    }
+    .button-area{
+        margin-top: 20px;
+        display: grid;
+        width: 100%;
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-gap: 5px;
+    }
+    button{
+        height: 50px;
+        border-radius: 14px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    #equal{
+        width: 100%;
+    }
+    .equal-area{
+        margin-top: 6px;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="calculator-body">
+            <div class="calculator-display">
+                <span id="dis-value"></span>
+            </div>
+            <div class="calculator">
+                <div class="button-area">  
+                <button onclick="getNumber(7)">7</button>
+                <button onclick="getNumber(8)">8</button>
+                <button onclick="getNumber(9)">9</button>
+                <button onclick="getNumber('+')">+</button>
+                <button onclick="getNumber(4)">4</button>
+                <button onclick="getNumber(5)">5</button>
+                <button onclick="getNumber(6)">6</button>
+                <button onclick="getNumber('-')">-</button>
+                <button onclick="getNumber(1)">1</button>
+                <button onclick="getNumber(2)">2</button>
+                <button onclick="getNumber(3)">3</button>
+                <button onclick="getNumber('*')">X</button>
+                <button onclick="getNumber(0)">0</button>
+                <button onclick="getNumber('.')">.</button>
+                <button onclick="getEmpty()">c</button>
+                <button onclick="getNumber('/')">/</button>
+            </div>
+            <div class="equal-area">
+                <button onclick="getAns()" id="equal">=</button>
+            </div>   
+            </div>
+        </div>
+    </div>
+    <script>
+        function getNumber(number){
+            document.getElementById("dis-value").innerText += number;
+        }
+        function getAns(){
+            let a = document.getElementById("dis-value").innerText;
+            let b = eval(a)
+            document.getElementById("dis-value").innerText = b;
+        }
+        function getEmpty(){
+            document.getElementById("dis-value").innerText = "";
+        }
+    </script>
+</body>
+</html>
